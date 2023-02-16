@@ -1,0 +1,152 @@
+adavantages of monolithic application 
+
+Microservices can be deployed and scaled individually, allowing for a more granular approach to scaling specific parts of 
+the application as needed.
+
+If one microservice fails, the others can continue to function, increasing the overall resilience of the application.
+
+With microservices, it is easier to implement new features and make changes to the application, since each microservice can be developed, 
+deployed and tested independently.
+
+Microservices can be built using different technologies and programming languages, allowing teams to choose the best tools for the job.
+
+Smaller codebases and independent deployment of microservices allow for faster and easier deployment of new features
+
+A microservices architecture can make it easier to maintain the codebase over time, since changes can be made to individual microservices 
+without affecting the entire system
+
+..........................................................................................
+
+In short, an aggregator is focused on collecting and combining data, while a workflow is focused on automating tasks to achieve a specific goal.
+
+..............................................................................................................................................
+
+what are the microservices principles
+
+The following are the principles of microservices architecture:
+
+Decentralized governance: Each microservice operates independently and has its own release cycle.
+
+Componentization: Each microservice should focus on a specific business capability.
+
+Single Responsibility Principle: Each microservice should have only one reason to change.
+
+High Cohesion: Microservices should be highly cohesive and tightly focused on a single business capability.
+
+Loose coupling: Microservices should be loosely coupled and minimize inter-service dependencies.
+
+Automated deployment: Microservices should be deployed and scaled automatically.
+
+Resilience: Microservices should be designed to be fault-tolerant and self-healing.
+
+Monitoring and logging: Microservices should be monitored and logged to detect and diagnose issues.
+
+Versioning: Microservices should be versioned to allow for backward compatibility.
+
+Statelessness: Microservices should be stateless to enhance scalability and reliability.
+
+hide implementation details 
+..............................................................................................................................................
+Here are examples for each of the microservices patterns:
+
+API Gateway pattern: An API gateway acts as an entry point for external clients, handling requests and routing them to the appropriate microservice. For example, Netflix uses an API gateway to handle all incoming traffic to its streaming service.
+
+Circuit Breaker pattern: A circuit breaker pattern is used to prevent cascading failures in a microservice system. For example, if a microservice becomes unresponsive, the circuit breaker will stop forwarding requests to it, allowing the rest of the system to continue functioning.
+
+Load Balancer pattern: Load balancing is used to distribute incoming requests evenly across multiple instances of a microservice. For example, a load balancer might route requests to different instances of a product catalog service based on their current load.
+
+Service Registry pattern: A service registry is used to keep track of all available instances of a microservice. For example, when a new instance of a microservice is deployed, it can register itself in the service registry, allowing other microservices to discover and communicate with it.
+
+Service Mesh pattern: A service mesh is a configurable infrastructure layer for microservices communication, providing features such as traffic management, service discovery, load balancing, and security. For example, Istio is a popular open-source service mesh implementation.
+
+Service Discovery pattern: Service discovery allows microservices to find each other and communicate with each other. For example, a microservice might use service discovery to find the address of a user service to retrieve user information.
+
+Command and Query Responsibility Segregation (CQRS) pattern: CQRS separates the responsibilities of reading and writing data in a microservice system. For example, one microservice might handle read operations on user data, while another microservice handles write operations.
+
+Event Sourcing pattern: Event sourcing is a pattern for storing the state of a microservice as a sequence of events. For example, a microservice might store every change to a user's profile as an event, allowing the system to replay the events to recreate the user's profile at any point in time.
+
+Bulkhead pattern: The bulkhead pattern is used to isolate failures in one part of the system from affecting other parts. For example, a microservice might have separate threads or processes for handling incoming requests, allowing a failure in one part of the system to be isolated without affecting the rest of the system.
+
+Compensating Transaction pattern: The compensating transaction pattern is used to undo the effects of a failed transaction and maintain data consistency across microservices. For example, if a microservice fails to complete a transaction, a compensating transaction might be used to revert the changes made by the failed transaction and restore the system to its previous state.
+
+...................................................................................................................................................
+
+The Twelve Factors
+I. Codebase
+One codebase tracked in revision control, many deploys
+II. Dependencies
+Explicitly declare and isolate dependencies
+III. Config
+Store config in the environment
+IV. Backing services
+Treat backing services as attached resources
+V. Build, release, run
+Strictly separate build and run stages
+VI. Processes
+Execute the app as one or more stateless processes
+VII. Port binding
+Export services via port binding
+VIII. Concurrency
+Scale out via the process model
+IX. Disposability
+Maximize robustness with fast startup and graceful shutdown
+X. Dev/prod parity
+Keep development, staging, and production as similar as possible
+XI. Logs
+Treat logs as event streams
+XII. Admin processes
+Run admin/management tasks as one-off processes
+
+...................................................................................................................................
+solid principles
+
+Single Responsibility Principle (SRP)
+every Java class must perform a single functionality
+
+Open-Closed Principle (OCP)
+the module should be open for extension but closed for modification
+
+
+Liskov Substitution Principle (LSP)
+
+Interface Segregation Principle (ISP)
+The principle states that the larger interfaces split into smaller ones. Because the implementation classes use only the methods that are 
+required. We should not force the client to use the methods that they do not want to use.
+
+Dependency Inversion Principle (DIP)
+
+...................................................................................................................................
+
+
+Scaling
+It can be defined as a process to expand the existing configuration (servers/computers) to handle a large number of user requests or to manage the
+ amount of load on the server. This process is called scalability
+ 
+ 
+ 
+verticl scalling 
+
+It is defined as the process of increasing the capacity of a single machine by adding more resources such as memory, storage, etc. to 
+increase the throughput of the system. No new resource is added, rather the capability of the existing resources is made more efficient.
+ This is called Vertical scaling. Vertical Scaling is also called the Scale-up approach. 
+
+Example: MySQL 
+ 
+ Horizontal Scaling
+ It is defined as the process of adding more instances of the same type to the existing pool of resources and not increasing the capacity of
+ existing resources like in vertical scaling. 
+ 
+ Advantages of Horizontal Scaling
+Fault Tolerance means that there is no single point of failure in this kind of scale because there are 5 servers here instead of 1 powerful server. So if anyone of the servers fails then there will be other servers for backup. Whereas, in Vertical Scaling there is single point failure i.e: if a server fails then the whole service is stopped.
+Low Latency: Latency refers to how late or delayed our request is being processed.
+Built-in backup
+
+.......................................................................................................................
+hysrtix 
+ it implements circuit breaker 
+ 
+
+
+
+
+

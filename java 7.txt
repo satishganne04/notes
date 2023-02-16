@@ -1,0 +1,62 @@
+The getInstance() method of java.util.Calendar class is a Static method. This method is used with calendar object to get the instance 
+of calendar according to current time zone set by java Runtime environment.
+
+..........................................................................................................................................
+
+life cycle of thread 
+In Java, a thread always exists in any one of the following states. These states are:
+
+New
+ Whenever a new thread is created, it is always in the new state. For a thread in the new state, the code has not been run yet and thus has
+ not begun its execution.
+ 
+Active
+When a thread invokes the start() method, it moves from the new state to the active state. The active state contains two states within it:
+ one is runnable, and the other is running.
+ 
+ 
+Blocked / Waiting
+ Whenever a thread is inactive for a span of time (not permanently) then, either the thread is in the blocked state or is in the waiting state.
+ 
+ 
+Timed Waiting
+Sometimes, waiting for leads to starvation. For example, a thread (its name is A) has entered the critical section of a code and is not 
+willing to leave that critical section
+
+Terminated
+ A thread reaches the termination state because of the following reasons:
+
+When a thread has finished its job, then it exists or terminates normally.
+Abnormal termination: It occurs when some unusual events such as an unhandled exception or segmentation fault.
+
+........................................................................................................................................
+
+The ConcurrentModificationException occurs when an object is tried to be modified concurrently when it is not permissible. This exception 
+usually comes when one is working with Java Collection classes.
+.......................................................................................................................................
+concurrentmap 
+
+ConcurrentMap is an interface
+ConcurrentMap interface present in java.util.concurrent package.
+HashMap operations are not synchronized, while Hashtable provides synchronization. Though Hashtable is a thread-safe, it is not very 
+efficient. To solve this issue, the Java Collections Framework introduced ConcurrentMap in Java 1.5.
+
+...........................................................................................................................................
+
+A deadlock is a condition where two or more transactions are waiting indefinitely for one another to give up locks. Deadlock is said to be
+ one of the most feared complications in DBMS as no task ever gets finished and is in waiting state forever.
+ 
+ ..................................................................................................................................
+marker interfce 
+
+it is used to give permissions to erform some opertions 
+
+
+....................................................................................................................
+
+nstance variables are not overriden in sub-class. If you define a variable in your class with the same name as in your super class it's called
+ shadowing of variables inheritance and polymorphism doesn't apply for instance variables. if you define method() in parent and override it in 
+ Child class. the below would invoke the Child's method() due to run-time polymorphism printing 11
+ 
+ ..................................................................................
+

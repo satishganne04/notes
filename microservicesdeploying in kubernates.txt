@@ -1,0 +1,17 @@
+1.creating docker image
+
+add docker plugin pom.xml files
+
+2 .add docker file in project
+
+FROM openjdk:11
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} user-service.jar
+ENTRYPOINT ["java","-jar","/user-service.jar"]
+EXPOSE 9002
+
+3.build and push 
+
+maven clean package dockerfile:push
+
+4.

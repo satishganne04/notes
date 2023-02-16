@@ -1,0 +1,34 @@
+The Heap is the runtime data area where all Java objects are stored. Thus, whenever we create a new class instance or array, the JVM will 
+find some available memory in the Heap and assign it to the object. The Heap's creation occurs at the JVM start-up, and its destruction happens 
+at the exit.
+
+Following are some key points to undertstand JVM Stack Area −
+
+During the creation of a thread, the Java Virtual Machine creates a separate stack.
+
+The JVM performs only two operations upon this stack. The operations are push (i.e insert) and pop (i.e delete).
+
+When a thread is currently in execution, the stack associated with it is known as runtime stack.
+
+Every method call done by the thread, intermediate calculations, assignment of local variables, calling parameters etc, are stored as an operation in the runtime stack.
+
+Once the thread stops or completes executing, the respective part from the stack is deleted.
+
+Once all the calls by the thread are complete, the stack becomes empty, and is deleted.
+
+Just before terminating the thread, JVM destructs the stack associated with the thread.
+
+The stack that stores data associated with a thread is exclusively available only to that specific thread, and unaccessible to other threads.
+
+This indicates that the data in the stack is thread-safe.
+
+Every data in the stack associated with the thread is known as activation record or stack frame.
+.....................................................................................................................................................
+What is Abstraction in Object Oriented programming? Abstraction is the process of hiding certain implementation details of an object and showing 
+only essential features of the object to outside world. 
+
+It is different from Abstract class in Java. Abstraction process identifies commonalities and hides the complexity of implementation. 
+It helps us in focusing on the interface that we share with the outside world
+
+.......................................................................................................................................................
+

@@ -1,0 +1,153 @@
+https://www.youtube.com/playlist?list=PLIGDNOJWiL18kSA2x_PRt7l0CyysyRC81
+
+real dom vs virtual dom
+
+the Virtual DOM is a crucial component of modern web development frameworks, as it provides a way to make updates to the Real DOM in a fast 
+and efficient manner, resulting in a better user experience.
+
+The Real DOM (Document Object Model) is the actual representation of a web page in a web browser's memory. It's a tree-like structure that
+ consists of HTML elements and attributes, and it's responsible for rendering the web page to the user. When an element in the Real DOM is updated,
+ the entire DOM tree is recalculated, and the updated HTML is then re-rendered to the user. This process is slow and can cause a noticeable delay
+ in the user experience, 
+ 
+ The Virtual DOM, on the other hand, is an in-memory representation of the Real DOM. It's a lightweight and fast version of the Real DOM that 
+ allows developers to make updates to the HTML elements without having to recalculate the entire DOM tree. React, for example, uses the Virtual
+ DOM to update only the necessary parts of the Real DOM, which results in a faster and smoother user experience.
+
+
+...............................................................................................................................................
+components ...
+
+two types 
+Function Components: They are simple JavaScript functions that return React elements. Function components are also called stateless
+ or presentational components.
+ 
+ Class Components: They are JavaScript classes that extend the React.Component class. Class components are also called stateful components,
+ as they have the ability to hold and manage state.
+ 
+ Class components are defined as JavaScript classes that extend the React.Component class. They have the ability to manage state and use
+ lifecycle methods, such as componentDidMount, shouldComponentUpdate, etc.
+ 
+ Function components, on the other hand, are simple JavaScript functions that return React elements. They do not have the ability to manage
+ state or use lifecycle methods. However, they are easier to write and understand, and they can be optimized for performance using memoization.
+ 
+ ...................................................................................................................................................
+ 
+ jsx ---
+ 
+JSX stands for JavaScript XML.
+
+JSX allows us to write HTML in React.
+
+JSX makes it easier to write and add HTML in React.
+
+JSX allows us to write HTML elements in JavaScript and place them in the DOM without any createElement()  and/or appendChild() methods.
+
+JSX converts HTML tags into react elements.
+ .................................................................................
+ state 
+ state is managed within the component 
+ variables declared in the function body
+ state can xhange with in the cmoponen
+ ...........................................................
+ 
+ In React, a fragment is a way to group a list of children elements without adding extra nodes to the DOM. It allows you to return multiple
+ elements from a component's render method without having to wrap them in an extra element, such as a div.
+ 
+ ...............................................................................................................................
+ 
+ In React, refs are used to access the properties of DOM elements directly. 
+ 
+ ................................................................................
+ 
+ what is state in react
+ 
+ In React, state is an object that holds data specific to a component. It represents the dynamic information that a component needs to
+ render correctly. State is mutable, which means that it can change over time in response to user actions or other events.
+ 
+ 
+ ................................................................................................................................................
+ what are stateless objects in react
+ 
+ In React, a stateless component, also known as a functional component, is a component that does not have its own state and does not 
+ modify or manage the state of the application. These components receive props (properties) from their parent component and render the UI 
+ based on those props.
+ 
+ ......................................................................................................................
+ 
+ Passing Data From Parent to Child
+ 
+ 1.When you need to pass data from a parent to child class component, you do this by using props.
+ 2.if you have two function components instead of class components, you don’t even need to use props
+ 
+ Passing Data from Child to Parent
+ 
+ Create a callback function in the parent component. This callback function will get the data from the child component.
+ Pass the callback function in the parent as a prop to the child component.
+ The child component calls the parent callback function using props.
+ ......................................................................................................................................
+ In summary, state hoisting is a technique used in React to simplify the component hierarchy and avoid duplicating state logic by moving 
+ state logic from child components to higher-level components.
+ 
+ 
+ .........................................................................................................................................
+ 
+ In JavaScript, a falsy value is a value that is considered to be false when used in a boolean context. There are six falsy values in JavaScript:
+
+false
+0 (zero)
+'' (empty string)
+null
+undefined
+NaN (Not-a-Number)
+
+.....................................................................................................................................
+Synchronous vs Asynchronous code
+
+Synchronous code is executed in a blocking manner, meaning that the next line of code will not be executed until the current line 
+of code has completed. 
+
+Asynchronous code, on the other hand, is executed in a non-blocking manner, meaning that the program will continue to execute while waiting 
+for the function to return a value. 
+
+...........................................................................................................................................
+idempotent
+
+In other words, an idempotent operation can be repeated many times, and the result will always be the same, no matter how many times it is executed.
+
+
+.................................................................................................................................................
+
+How React's reconciliation Algorithm Works?
+
+React's reconciliation algorithm is the process by which React updates the virtual DOM in response to changes in state and props. The goal of this process is to efficiently update the real DOM to match the virtual DOM, while minimizing the number of updates and rendering operations.
+
+The algorithm works as follows:
+
+React starts by comparing the current virtual DOM tree with the virtual DOM tree that it wants to update, based on the latest state and props.
+
+If the two trees are the same, React does not update the real DOM, and the process is complete.
+
+If the two trees are different, React uses the virtual DOM to calculate the minimal number of changes required to update the real DOM.
+
+React then updates the real DOM with the minimum set of changes required to make the real DOM match the virtual DOM.
+
+React then continues to step 1, comparing the updated virtual DOM with the next virtual DOM that it wants to update.
+
+
+..........................................................................................................................................
+
+An Element is a plain object describing what we want to appear in terms of the DOM nodes.
+
+const element = <h1>Hello, world</h1>;
+
+We have created an Object of type h1 and assigned it to a variable called as element. 
+
+An Element contains type and properties, here h1 is the type and this element contains className as property.
+
+...............................................................................
+Components
+
+Components are like functions that return HTML elements
+
+two types 1.class component 2.function component

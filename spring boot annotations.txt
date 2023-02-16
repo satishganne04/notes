@@ -1,0 +1,145 @@
+The @SpringBootApplication annotation is a convenience annotation provided by Spring Boot that is used to enable a number of features in a 
+Spring application. This annotation is equivalent to using a combination of the following annotations:
+
+@Configuration: Indicates that a class provides a source of bean definitions for the application context.
+
+@EnableAutoConfiguration: Enables Spring Boot's auto-configuration feature, which automatically configures certain beans based on the presence of
+ certain classes on the classpath and the state of the application context.
+
+@ComponentScan: Enables component scanning, which allows Spring to automatically discover and register beans in the application context.
+
+By using the @SpringBootApplication annotation, you can enable these features with a single annotation, instead of having to use each of the
+ individual annotations separately.
+
+It also allows you to specify certain properties such as scan base package and exclude certain classes, as well as providing a default value for
+ certain properties.
+ 
+
+The main advantage of using @SpringBootApplication annotation is that it saves time and makes the code more readable, by using the single
+ annotation instead of multiple annotations. It also makes it easy to understand the purpose of the class, as it is the entry point of the Spring
+ Boot application.
+ 
+ ............................................................................................................................................
+ 
+ The @Component annotation is a stereotype annotation provided by Spring that is used to indicate that a class is a component.
+ This annotation is used to mark a class as a candidate for component scanning, so that Spring can automatically discover and register the 
+ class as a bean in the application context.
+ 
+ ............................................................................................
+ The @Service annotation is a stereotype annotation provided by Spring that is used to indicate that a class is a service component. 
+ It is similar to the @Component annotation but it is typically used to indicate that a class is a service-layer component.
+
+A class annotated with @Service is a candidate for component scanning and it can be automatically discovered and registered by Spring as a bean 
+in the application context. The @Service annotation is typically used to mark classes that provide business logic, and it is often used in
+ conjunction with the @Repository annotation to indicate the specific role of the component.
+
+.................................................................................................................
+The @Repository annotation is a stereotype annotation provided by Spring that is used to indicate that a class is a repository component. It 
+is similar to the @Component and @Service annotation but it is typically used to indicate that a class is a repository-layer component that provides
+ data access functionality.
+ 
+ .......................................................................................................................
+ @configuration 
+ The @Configuration annotation is a Spring annotation that is used to indicate that a class is a source of bean definitions for
+ the application context. It is typically used to define the beans that make up the application context and to configure the application's 
+ environment.
+ 
+ A class annotated with @Configuration can define beans through method declarations that are annotated with @Bean. These methods return instances 
+ of the bean, which can be instantiated, configured, and managed by the Spring container.
+ 
+ ..........................................................................................................................
+ The @Bean annotation is a method-level annotation provided by Spring that is used to indicate that a method's return value should be registered
+ as a bean in the application context. It is typically used in conjunction with the @Configuration annotation to define and configure beans.
+ 
+ ......................................................................................................................................
+ The @Autowired annotation is a Spring annotation that is used to indicate that a field, constructor, or method should be autowired by Spring's 
+ dependency injection (DI) mechanism. It is used to inject a bean that has been previously defined and registered with the application context 
+ into the annotated field, constructor, or method.
+ 
+ .............................................................................................................................................
+ 
+ Both @Primary and @Qualifier annotations are used to resolve conflicts when multiple beans of the same type are candidates for injection.
+ But they work in slightly different ways:
+
+@Primary is used to indicate that a bean should be given preference when multiple candidates are found for autowiring. It is used to
+ specify which bean should be injected when there are multiple beans of the same type that could be used to satisfy a dependency.
+ 
+ @Qualifier is used to provide a more specific way to identify a bean. It can be used to qualify a bean by name or by custom attributes. 
+ The @Qualifier annotation can be used on a field, constructor or method parameter.
+ 
+ ..........................................................................................................................................
+ 
+ The @Lazy annotation is a Spring annotation that is used to indicate that a bean should be lazily initialized. It is used to delay the 
+ initialization of a bean until it is actually needed. By default, Spring initializes all the beans at the time the application context is created,
+ but with the @Lazy annotation, the bean is initialized only when it is first accessed or when a method on the bean is called.
+ .........................................................................................................................................
+ 
+ The @Value annotation is a Spring annotation that is used to inject a value into a field, constructor or method parameter. It is used to
+ assign a value to a field, constructor or method parameter from a property defined in a properties file or from an environment variable.
+ 
+ ...............................................................................................................................................
+ 
+ @ConfigurationProperties(prefix = "myapp")
+public class MyProperties {
+
+    private String property1;
+    private String property2;
+
+    // getters and setters
+}
+
+
+In this example, the MyProperties class is annotated with @ConfigurationProperties(prefix = "myapp"). This tells Spring to bind the properties 
+that start with "myapp" in the application.properties file to the fields in the MyProperties class.
+
+.................................................................................................................................................
+
+The @Profile annotation is a Spring annotation that is used to indicate that a bean or a configuration class should only be registered or activated
+ in certain environments. It is used to specify that a bean or a configuration class should only be registered or activated when the specified 
+ profile is active.
+ 
+ You can activate a profile at runtime by specifying the active profile in the configuration file, for example in application.properties
+
+
+spring.profiles.active=dev
+
+.....................................................................................................................................................
+There are several built-in scopes in Spring that can be specified using the @Scope annotation:
+
+singleton: This is the default scope, and it means that a single instance of the bean will be created and shared across the entire application.
+prototype: This means that a new instance of the bean will be created each time it is requested.
+request: This means that a new instance of the bean will be created for each HTTP request.
+session: This means that a new instance of the bean will be created for each HTTP session.
+application: This means that a single instance of the bean will be created for the entire web application.
+websocket: This means that a new instance of the bean will be created for each WebSocket connection.
+
+...........................................................................................................................................
+
+@RestController is a Spring annotation that is used to create RESTful web services. It is a combination of two annotations: @Controller
+ and @ResponseBody.
+
+@Controller: This is a Spring annotation that is used to indicate that a class serves as a controller and can handle HTTP requests.
+@ResponseBody: This is a Spring annotation that is used to indicate that the return value of a method should be used as the response body of the 
+HTTP request.
+
+.............................................................................................................................................
+In Spring Boot, the @RequestBody annotation is used to bind a method parameter to the body of the HTTP request. It can be used to convert the
+ JSON or XML payload of a request into a Java object. The object is automatically deserialized by Spring's HTTP message converter, and the resulting
+ object is passed as an argument to the method. This annotation is typically used in RESTful web services, where the request body contains JSON or XML
+ data that needs to be deserialized into a Java object before being passed to the method.
+ .....................................................................................................................
+ 
+ In Spring Boot, the @PathVariable annotation is used to bind a method parameter to a URI template variable. It can be used to extract a value
+ from the URI of a request, and pass it as an argument to a method. This annotation is typically used in RESTful web services, where a part of the
+ URI is used to represent a variable, and its value is passed to the method. For example, in the URI "/users/{id}", the value of the id variable
+ could be extracted using the @PathVariable annotation, and passed as an argument to a method that retrieves a user with a given id.
+ 
+ ................................................................................................................................................
+ 
+ @RequestParam to extract query parameters, form parameters, and even files from the request.
+ 
+ ....................................................................................................................................................
+ 
+ @controller advice and expection handler annotation in spring boot
+ 
+ @entity , @table @transctional ,

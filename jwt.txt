@@ -1,0 +1,38 @@
+before 3.0 we have websecurityconfigureadapter , now it is in spring 3.0 , it is dupricated 
+
+websecurityconfigureadapter ,it is for authintication and autherization
+
+in spring 3.0 , we need to create a bean for authentication and authoriation 
+
+Userdetailsservice ----for authentication ,here we add al the datils of users and admins
+securityfilterchain --it is for authorization 
+
+
+@Configuration
+@EnableWebSecurity--to enable securuty 
+@EnableMethodSecurity---method level seciruty ,to use @preauthorize annotation .
+
+
+add authinticationprovider ---It is responsible for validating a user's authentication request by checking the supplied username and password
+                              and determining whether the user is authorized to access the system. 
+							  
+							  
+jwt token has 3 parts 1)header  --	ALGORITHM & TOKEN TYPE
+                      2)PAYLOAD   ----Issuer(iss),Subject (sub),Audience (aud),Expiration time (exp),Issued at (iat)
+                      3)VERIFY SIGNATURE--encoding the header and payload using Base64url Encoding and concatenating them with a period separator.
+                     					  Which is then given to the cryptographic algorithm.
+										  
+										  
+............................................................................................. ...............................\
+
+What is the difference between JWT and OAuth?
+Answer: JWT is a token format, while OAuth is a protocol for authorization. JWTs can be used with OAuth to provide authentication and authorization.
+ OAuth is used to grant access to a third-party application to a user's resources without giving the third-party application the user's password.
+ 
+ ..........................................................................................................................................
+ interview quesion with answers
+ 
+ https://climbtheladder.com/jwt-token-interview-questions/#:~:text=20%20JWT%20Token%20Interview%20Questions%20and%20Answers%201,tokens%20like%20Auth0%20or%20OAuth2%3F%20...%20More%20
+ 
+ 
+ .............................................................................................................

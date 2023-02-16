@@ -1,0 +1,231 @@
+Here are the steps to dockerize a Spring Boot application:
+
+Build the Spring Boot application and generate a jar file.
+
+1.Create a Dockerfile in the same directory as the jar file. The Dockerfile should contain instructions for building a Docker image, 
+such as specifying a base image and copying the jar file into the image.
+
+Build the Docker image using the Dockerfile. You can use the following command to build the image:
+
+docker build -t <image-name> .
+
+Once the image is built, you can run a container from the image using the following command:
+docker run -p <containe port>:<local-port> <image-name>
+
+Verify that the Spring Boot application is running inside the container by accessing the application endpoint in a web browser.
+
+
+Note: These steps are just a general outline, and the exact steps may vary depending on the specifics of your Spring Boot application
+ and the Docker environment you are using.
+ 
+ 2.Docker Hub is a cloud-based registry service for storing and sharing Docker images. It provides a centralized place for developers 
+ to store, manage, and distribute Docker images, making it easier to share and collaborate on containerized applications. 
+ 
+    docker tag myimage myusername/myimage      -----firs we need to tag our docker image with docker username 
+ 
+     docker push myusername/myimage          -------then after push docker immage to docker hub   
+
+.....................................................................................................................................................
+
+
+
+what is docker 
+
+Docker is a platform for developers and system administrators to develop, ship, and run applications in containers.
+ Containers are lightweight, portable, and self-sufficient software packages that include everything an application needs to run, including
+ the code, runtime, system tools, libraries, and settings. This allows applications to run consistently across different environments, making 
+ it easier to test, deploy, and maintain.
+ 
+ -------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ Kubernetes provides a way to manage and orchestrate containers, such as those created with Docker, across a cluster of machines. 
+ It can automatically scale and balance the workloads, and self-heal in case of failures. It also provides features like service discovery,
+ load balancing, and storage orchestration. Kubernetes can be run on-premises, in the cloud, or in a hybrid environment.
+ 
+ ...............................................................................................................................................
+ 
+ kubernates health checks
+ 
+ Kubernetes provides several ways to check the health of your application containers and the overall state of your cluster.
+
+Liveness Probe: This check is used to determine if an application container is running and healthy. If the check fails, Kubernetes will
+ restart the container.
+
+Readiness Probe: This check is used to determine if an application container is ready to handle requests. If the check fails, Kubernetes will stop 
+sending requests to the container until it is ready.
+
+Both liveness and readiness probes use three types of checks:
+
+HTTP: Kubernetes sends an HTTP request to a specified endpoint in the container and checks the response code.
+
+TCP: Kubernetes opens a TCP connection to a specified port in the container and checks that the connection is established.
+
+Command: Kubernetes runs a specified command in the container and checks the output and exit code.
+
+Both liveness and readiness probes are defined in the pod's yaml file, the configuration for each probe can include the following parameters :
+
+initialDelaySeconds : the delay before the first check
+timeoutSeconds : the amount of time that the probe can take before it times out
+periodSeconds : the time between each check
+failureThreshold : the number of consecutive failures before marking the container as failed
+successThreshold : the number of consecutive success before marking the container as healthy
+
+
+........................................................................................................................................
+
+kubernates namespaces
+
+In Kubernetes, a namespace is a way to divide cluster resources among multiple users or projects. Each namespace is a logical boundary for
+ resources such as pods, services, and configuration maps. Namespaces provide an additional level of isolation within a cluster
+ 
+ for example , u can deploy all the dev in ore namespace , all db in one namespace ,one thin import thst we cant access direcly other namespaces
+ 
+ 
+ 1.creation of namespace commmad
+ 
+ kubectl create namespace my-namespace
+ 
+ 
+ 
+ 2.to deploy to particular nsmespace
+ kubectl apply -f my-deployment.yaml --namespace=my-namespace
+ 
+ 3.to check the file is delpoed to particlar namespace or not
+ kubectl get deployment -n my-namespace
+ 
+ 4.to check pod is runing or not
+ 
+  kubectl get pod -n my-namespace
+  
+  5.to delete a deployment
+  
+   kubectl delete -f my-deployment.yaml -n namespace
+   
+   6.to create service same command
+   
+   
+   7.to get service
+   kubectl get service
+   
+   8.kubectl describe service service_name
+   
+   9.to get all the information about pods 
+   
+   kubectl get pods -o wide
+   
+   10/to create tunnel in cluster
+    minikube service service_name
+  
+ .............................................................................................................................................
+ 
+ kubernates yaml configuration
+ 
+ A typical Kubernetes YAML file contains the following sections:
+
+apiVersion: The version of the Kubernetes API that the resource belongs to.
+
+kind: The type of resource that is being defined, such as a Pod, Service, or Deployment.
+
+metadata: Information about the resource, such as its name, namespace, labels, and annotations.
+
+spec: The configuration settings for the resource, such as the number of replicas, the container image, and environment variables.
+
+status: The current status of the resource, such as the number of replicas running and the conditions under which the resource is
+ considered healthy.
+ 
+ 
+ ...................................................................................................................................
+ 
+Kubernetes provides a wide range of commands for managing and interacting with resources in a cluster. Below are some common kubectl commands:
+
+kubectl get: Lists resources of a specific type or all resources.
+Copy code
+$ kubectl get pods
+$ kubectl get services
+$ kubectl get deployments
+kubectl describe: Provides detailed information about a specific resource.
+Copy code
+$ kubectl describe pod my-pod
+$ kubectl describe service my-service
+$ kubectl describe deployment my-deployment
+kubectl create: Creates a new resource.
+Copy code
+$ kubectl create -f my-pod.yaml
+$ kubectl create -f my-service.yaml
+$ kubectl create -f my-deployment.yaml
+kubectl apply: Creates or updates a resource.
+Copy code
+$ kubectl apply -f my-pod.yaml
+$ kubectl apply -f my-service.yaml
+$ kubectl apply -f my-deployment.yaml
+kubectl delete: Deletes a resource.
+Copy code
+$ kubectl delete pod my-pod
+$ kubectl delete service my-service
+$ kubectl delete deployment my-deployment
+kubectl scale: Scales the number of replicas for a Deployment or ReplicaSet.
+Copy code
+$ kubectl scale deployment my-deployment --replicas=5
+$ kubectl scale replicaset my-replicaset --replicas=3
+kubectl exec: Runs a command in a specific container.
+Copy code
+$ kubectl exec my-pod -it -- bash
+kubectl logs: Shows the logs for a specific container.
+Copy code
+$ kubectl logs my-pod
+kubectl port-forward: Forwards a local port to a port on a pod.
+Copy code
+$ kubectl port-forward my-pod 8080:80
+kubectl top: Shows the resource usage for a specific resource.
+Copy code
+$ kubectl top pod my-pod
+$ kubectl top node my-node
+kubectl config: Manages kubeconfig files, which are used to configure access to a Kubernetes cluster.
+Copy code
+$ kubectl config view
+$ kubectl config set-context my-context
+These are some of the most common kubectl commands, but there are many more available. You can use the kubectl help command to see a list of all available commands.
+
+.....................................................................................................................................................
+
+components in kubernates
+
+1.pod 
+
+A pod in Kubernetes is the smallest and simplest unit in the Kubernetes object model, that represents a single process or container. Pods 
+can contain one or more containers, and they share the same network namespace, meaning they can communicate with each other over localhost. 
+Pods also have shared storage, so containers in the same pod can share data.
+
+It's important to note that pods are not meant to be long-lived, they are meant to be replaced by new pods in case of failures.
+
+...............................................................................................................................................
+
+Pods: The smallest deployable units in Kubernetes, used to run one or more containers.
+
+Nodes: Physical or virtual machines that run containers managed by Kubernetes.
+
+Replication Controllers: Ensures that a specified number of replicas of a pod are running at any given time.
+
+Services: An abstraction for pods, enabling load balancing and network access to the pods.
+
+Labels and Selectors: Used to organize and identify resources in a cluster, such as pods and nodes.
+
+Volumes: Persistent storage volumes for data used by pods.
+
+Namespaces: Virtual clusters within a physical cluster, used to isolate resources and limit resource consumption.
+
+ConfigMaps and Secrets: Used to store configuration data and sensitive information, respectively, that can be used by pods.
+
+Deployments: A higher-level resource that manages Replication Controllers, ensuring that pods are updated in a rolling fashion.
+
+Autoscaling: Automatically scaling the number of replicas of a resource based on CPU utilization or other metrics.
+
+Cluster networking: The communication between pods and services within and between clusters.
+
+RBAC (Role-Based Access Control): Security feature for controlling access to resources within a cluster based on user roles.
+
+..........................................................................................................................................
+
+
+
+

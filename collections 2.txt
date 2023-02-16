@@ -1,0 +1,39 @@
+concurrenthashmap
+
+A ConcurrentHashMap is a class in the Java Collection Framework that provides a concurrent and thread-safe implementation of the Map interface.
+ It allows multiple threads to read and write to the map without the need for explicit synchronization. It is a part of the java.util.concurrent
+ package and it is an alternative to the HashMap class for use in a multi-threaded environment.
+
+The ConcurrentHashMap class uses a technique called "lock striping" to achieve its thread-safety. Instead of acquiring a single lock for the
+ entire map, it splits the map into a fixed number of segments and only locks the segment that is being modified. This allows multiple threads 
+ to read and write to different segments of the map simultaneously, improving performance when the map is heavily accessed.
+ 
+ 
+ .......................................................................................................................................
+ 
+ hashmap implementation 
+ 
+ The HashMap class in Java is an implementation of the Map interface that uses a hash table to store its elements. It is part of the
+ Java Collection Framework and it is widely used for storing key-value pairs.
+
+The basic idea behind the internal implementation of HashMap is to use an array (or more specifically, an array of linked lists) to store the
+key-value pairs. Each element in the array is a linked list, called a "bucket," that stores all the key-value pairs that have the same "hash code."
+ The hash code is a numerical representation of the object that is used to determine the index of the array where the object should be stored.
+
+When a new key-value pair is added to the HashMap, the hash code of the key is calculated, and the key-value pair is added to the linked list at 
+the corresponding index in the array. If there are multiple key-value pairs with the same hash code, they are added to the same linked list, and 
+the HashMap uses the equals() method to compare the keys and determine their uniqueness.
+
+When a key is used to retrieve a value from the HashMap, the hash code of the key is calculated, and the HashMap looks for the key-value pair in 
+the linked list at the corresponding index in the array. If there are multiple key-value pairs with the same hash code, the HashMap uses the
+ equals() method to compare the keys and find the matching key-value pair.
+
+The HashMap class also uses a technique called "rehashing" to automatically resize the array when the number of key-value pairs in the HashMap 
+exceeds a certain threshold. When the array is resized, all the key-value pairs are rehashed and added to the new array, so that the load factor 
+(the ratio of the number of key-value pairs to the size of the array) remains within a certain range.
+
+HashMap is not thread-safe, meaning that it is not designed to be used by multiple threads simultaneously, but there is a thread-safe version 
+of this class that is called ConcurrentHashMap.
+
+...............................................................................................................................................
+

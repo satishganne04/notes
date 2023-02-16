@@ -1,0 +1,74 @@
+1...useState:
+This hook allows you to add state to functional component 
+
+
+const [state, setState] = useState(initialState);
+The useState hook takes an initial state value as an argument and returns an array with two elements: the current state value and a function 
+to update it. For example, if you want to add a counter to your component, you could use useState like this:
+
+
+const [count, setCount] = useState(0);
+Then, you can use count to display the current count and setCount to update the count, for example:
+
+Copy code
+<button onClick={() => setCount(count + 1)}>
+  Increment
+</button>
+
+2...useContext:
+ 
+React Context is a way to manage state globally.
+
+It can be used together with the useState Hook to share state between deeply nested components more easily than with useState alone.
+This hook allows you to access the context (a way to pass data through the component tree without having to pass props down manually at 
+every level) in a functional component.
+
+const value = useContext(MyContext);
+The useContext hook allows you to access the context in a functional component. It takes the context object as an argument and returns the current 
+context value. For example, if you have a context called MyContext that holds a theme object, you could use useContext like this:
+
+
+const theme = useContext(MyContext);
+Then, you can use the theme object to style your component.
+
+Here's how you can use useContext in a functional component:
+
+Next, you need to wrap the components that need access to the context data in a provider:
+
+inally, in the functional component that needs access to the context data, use the useContext hook
+
+...................................................................................................................................................
+
+
+3.use effect ...
+ This hook allows you to add lifecycle methods like componentDidMount and componentDidUpdate to functional components. It takes a 
+ function as an argument that will be called after the component is rendered.
+ 
+ useEffect(() => {
+  // effect code
+}, [dependencies]);
+
+The useEffect hook takes a function as an argument that will be called after the component is rendered. It also takes an optional array of 
+dependencies as a second argument. If the dependencies change, the effect will run again. You can use useEffect to handle side effects like 
+fetching data or subscribing to an event. For example, if you want to fetch data when the component mounts, 
+you could use useEffect like this:
+
+
+useEffect(() => {
+  fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(json => setData(json));
+}, []);
+
+...................................................................................................................................................
+
+usereducer ...
+
+The useReducer Hook is similar to the useState Hook.
+
+It allows for custom state logic.
+
+If you find yourself keeping track of multiple pieces of state that rely on complex logic, useReducer may be useful.
+
+
+..................................................................................................................................................

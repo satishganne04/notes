@@ -1,0 +1,316 @@
+what is hashmap improvement in java 8
+
+when a create a hashmap , it will create a bucket ,it has size of 16 , when u try insert key vslue pair , it will calculate the hashoced of key 
+and by using hashcode it will calculate index,Index = hashcode(Key) & (n-1)   ..each node has hashcode ,key , vslue ,next when there is collision ,
+it will create linked list to store all the nodes ,when using get method it will calculate hascode and index by using equals method it checks ,
+get vslue 
+In Java 8, the HashMap class was improved to better handle the case when the number of elements in the map exceeds the threshold LEVEL 8 ,IT WILL
+
+CONVERT mlist to balanced tree , in balanced tree it is easy to perform put, search opertions
+ 
+..................................................................................................................................................
+
+How do you implement thread-safety in a Java application?
+
+there are several ways 
+
+Synchronization: Use the synchronized keyword to synchronize access to shared resources and prevent multiple threads from modifying 
+them simultaneously.
+
+class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public synchronized int getCount() {
+        return count;
+    }
+}
+..................................................................................................................
+In Java, the process of garbage collection is responsible for freeing up memory that is no longer being used by the application. The Java 
+Virtual Machine (JVM) automatically performs garbage collection by periodically identifying and deleting objects that are no longer reachable 
+by the application.
+
+.........................................................................................................................................
+
+How do you implement a Singleton pattern in Java?
+
+public class Singleton {
+    // static instance variable
+    private static Singleton instance;
+
+    // private constructor
+    private Singleton() {}
+
+    // public static method to get the instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
+
+This implementation uses a static variable instance to store the single instance of the class. The constructor is private, which means
+ it can only be called by the class itself. The getInstance() method is a public static method that returns the instance of the class. 
+ If the instance variable is null, it creates a new instance and assigns it to the variable. If the instance variable is not null, it
+ simply returns the existing instance.
+ 
+ it is worth mentioning that this implementation is not thread-safe, meaning that multiple threads can access the getInstance() method at
+ the same time, and it could lead to multiple instances of the class. To overcome this issue, you can use the "Double Checked Locking" 
+ pattern or you can use "Eager Initialization" pattern to initialize the instance during the class loading time.
+ 
+ The "Double Checked Locking" pattern is a variation of the singleton pattern that addresses the thread-safety issue by using a double-checked
+ lock to ensure that only one instance of the class is created, even in a multi-threaded environment. Here is an example:
+ 
+ public class Singleton {
+    // static instance variable
+    private static volatile Singleton instance;
+
+    // private constructor
+    private Singleton() {}
+
+    // public static method to get the instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+.......................................................................................................
+
+generics 
+
+In Java, generics are a feature that allows for the creation of classes, interfaces, and methods that can work with different types of data.
+
+ you use angle brackets (<>) to specify the type of data that the class or method can work with.
+ 
+ class synrax =class classname <T>{}
+ 
+ Method syntax --public static <T> void methodname(){} it should be before return types , we can alao return t 
+ 
+ .........................................................................................
+ 
+ The 12-factor app is a methodology for building software-as-a-service (SaaS) applications that are easy to scale and maintain. The methodology consists of 12 principles that should be followed when designing and building an app:
+
+Codebase: one codebase tracked in version control, many deploys
+Dependencies: explicit declaration and isolation
+Config: store config in the environment
+Backing services: treat backing services as attached resources
+Build, release, run: strict separation of build and run stages
+Processes: execute the app as one or more stateless processes
+Port binding: export services via port binding
+Concurrency: scale out via the process model
+Disposability: maximize robustness with fast startup and graceful shutdown
+Dev/prod parity: keep development, staging, and production as similar as possible
+Logs: treat logs as event streams
+Admin processes: run admin/management tasks as one-off processes
+By following these principles, it is possible to build an app that is easy to scale, maintain, and deploy, and can be run in different environments.
+
+
+
+......................................................................................
+ real dom vs virtual dom 
+ 
+ real domm ---The Document Object Model (DOM) is a hierarchical representation of an HTML document as a tree-like structure. The elements in
+ the HTML document, such as text, images, and buttons, are represented as nodes in the tree.
+
+In a web application, whenever there is a change in the user interface, the entire DOM must be updated. This can be slow and inefficient, 
+especially for complex web applications with many elements.
+
+The Virtual DOM is a JavaScript representation of the actual DOM, which acts as an intermediary between the JavaScript code and the actual DOM.
+ It keeps a light-weight in-memory tree structure of the actual DOM, and is updated whenever there is a change in the user interface.
+
+When a change is made to the Virtual DOM, it calculates the difference between the current Virtual DOM and the updated Virtual DOM and updates 
+only the specific parts of the actual DOM that need to be changed, making the process faster and more efficient.
+
+In this way, the Virtual DOM provides a fast and efficient way of updating the user interface, while reducing the load on the actual DOM, 
+improving the performance and speed of web applications.
+..........................................................................................................................................
+Following are the steps to pass data from child component to parent component:
+
+In the parent component, create a callback function. This callback function will retrieve the data from the child component.
+
+Pass the callback function to the child as a props from the parent component.
+
+The child component calls the parent callback function using props and passes the data to the parent component.
+
+..................................................................
+
+There are multiple ways to communicate from a child component to a parent component in React, here are some of the common ones:
+
+Callback functions: This is the most common approach to communicate from a child component to a parent component. The parent component
+ passes a callback function as a prop to the child component. The child component can then call this callback function when it needs to 
+ communicate with the parent component.
+
+Context API: The Context API in React allows for data to be passed from a parent component to its children without the need for props drilling. 
+You can create a context object in the parent component and provide it to its children using the React.createContext function. The children 
+components can then use the React.useContext hook to access the data from the context.
+
+State management libraries: When building large and complex applications, it can become challenging to manage state and communicate between 
+components. In such cases, state management libraries like Redux, MobX, or Recoil can be used to manage the state of the application and communicate
+ between components.
+ 
+ .................................................................................................................................
+in how many ways we can create objects in java 
+
+Using the new operator: This is the most common way to create objects in Java. The new operator creates an instance of a class by calling 
+its constructor and returning a reference to the created object.
+
+Using the Class.forName() method: This method creates an instance of a class dynamically at runtime by loading the class using its 
+fully-qualified name.
+
+Using the clone() method: This method creates a new object that is an exact copy of an existing object. The clone() method is defined in
+ the java.lang.Cloneable interface, which must be implemented by the class for its objects to be clonable.
+
+Using the Object.class.newInstance() method: This method creates an instance of a class dynamically at runtime by calling its default constructor.
+
+....................................................................................................................................................
+Redux is a popular state management library for JavaScript applications, particularly for React-based applications. It provides a centralized 
+store for application state, making it easier to manage, debug, and test the state of complex applications.
+ 
+In Redux, all application state is stored in a single, global store. Components can dispatch actions, which are plain JavaScript objects 
+that describe changes to the state, to the store. The store then updates its state based on the dispatched actions, and notifies the components
+ that depend on the updated state.
+
+Components subscribe to the store and receive updates when the state changes. This architecture helps enforce the unidirectional data flow pattern,
+ where data flows in a single direction from the store to the components. This makes it easier to understand and debug the state of the application.
+ 
+
+Redux provides a simple and predictable way to manage application state, making it a popular choice for complex applications that need to manage 
+large amounts of state.
+
+...........................................................................................................................................
+
+two types of components in react---1)function components 2)class components
+
+................................................................................................................................................
+circuit breaker 
+ circuit breaker pattern where a proxy service acts as a circuit breaker. Each service should be invoked through proxy service. A proxy service
+ maintains a timeout and failures count. In case of consecutive failures crosses the threshold failures count then proxy service trips the 
+ circuit breaker and starts a timeout period. During this timeout period, all requests will failed. Once this timeout period is over, proxy 
+ service allows a given limited number of test requests to pass to provider service. If requests succeed the proxy service resumes the operations 
+ otherwise, it agains trips the circuit breaker and starts a timeout period and no requests will be entertained during that period
+
+.....................................................................................................................................................
+fault tolerance 
+
+if there is any fault , wha is the impact or what is toerance 
+
+fault tolerance refers to the ability of the system to handle and recover from failures in one or more microservices without
+ affecting the overall functioning of the system.
+ 
+ Fault tolerance is the ability of a system to continue functioning despite the occurrence of faults or failures. In microservices,
+ fault tolerance refers to the ability of the system to handle and recover from failures in one or more microservices without affecting
+ the overall functioning of the system.
+
+There are several techniques for achieving fault tolerance in microservices, including:
+
+Circuit Breaker: A Circuit Breaker is a pattern that monitors the health of the communication between microservices, and trips if a microservice
+ fails to respond within a specified time period. The Circuit Breaker acts as a gatekeeper, preventing further calls to the failing microservice, 
+ and reducing the impact of the failure on the overall system.
+
+Load Balancing: Load balancing helps to distribute the load evenly across multiple instances of a microservice, reducing the impact of failures 
+in one instance. Load balancers can be used to redirect traffic to healthy instances in case of failures, improving the system's overall
+ availability.
+
+Health Checks: Health checks are used to monitor the health of microservices, and detect failures early on. Health checks can be implemented 
+using tools like Actuator in Spring Boot, or using custom solutions based on the needs of the system.
+
+Replication: Replication refers to the creation of multiple instances of a microservice, allowing the system to continue functioning even if 
+one instance fails. Replication can be achieved using tools like Kubernetes or Docker Swarm.
+
+By combining these techniques, it's possible to achieve high levels of fault tolerance in microservices, improving the system's availability
+ and reliability.
+ ...............................................................................................................
+ 
+ resilience 
+ it means how many faults the system can tolerate 
+ .......................................................................................
+ 
+ class in java script 
+ 
+ In JavaScript, classes are a feature introduced in ECMAScript 6 (ES6) for creating reusable objects with similar properties and methods.
+ Classes are a blueprint for creating objects, and serve as a constructor for instances of the class.
+ 
+ class Car {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  startEngine() {
+    console.log(`The ${this.make} ${this.model}'s engine is now running`);
+  }
+}
+
+const myCar = new Car('Toyota', 'Camry', 2022);
+myCar.startEngine();
+
+...................................................................
+ECMAScript 5 (ES5) and ECMAScript 6 (ES6) are two different versions of JavaScript, with ES6 being a newer and more advanced version. 
+Some of the main differences between ES5 and ES6 include:
+
+Syntax: ES6 introduces new syntax features, such as template literals, destructuring, and arrow functions, that simplify code and make it
+ easier to write and understand.
+
+Modules: ES6 introduces a standard for organizing and sharing code across different files and modules, making it easier to build and maintain 
+large applications.
+
+Classes: ES6 introduces a new syntax for defining classes, which makes it easier to create and manage objects with similar properties and methods.
+
+Promises: ES6 introduces Promises, a new way of handling asynchronous code, making it easier to write and manage complex asynchronous workflows.
+
+New built-in objects: ES6 introduces new built-in objects, such as Maps, Sets, and WeakMaps, which provide new ways of working with data and 
+collections.
+
+Better support for functional programming: ES6 provides better support for functional programming, with new features such as the
+ Array.prototype.map() and Array.prototype.reduce() methods.
+
+Overall, ES6 provides a number of new features and improvements over ES5, making it easier to write and maintain complex JavaScript 
+applications. However, ES5 is still widely supported and used, and there are many tools and libraries available to help you write ES6 code 
+that can be used in ES5 environments.
+
+...............................................................................................................................................
+supported data types in react---1
+
+React, as a JavaScript library, supports all the data types that are available in JavaScript, including:
+
+Number: represents numeric values, e.g. 42 or 3.14.
+String: represents sequences of characters, e.g. "Hello World".
+Boolean: represents a logical value either true or false.
+Null: represents an intentional non-value.
+Undefined: represents an uninitialized value.
+Object: represents a collection of properties and methods.
+Array: represents a list of values.
+.................................................................................................................................
+stream and parallel stream 
+
+A stream is a sequence of data elements that supports various methods for processing those elements, such as filter, map, and reduce.
+
+A parallel stream is a type of stream that is specifically designed to process data in parallel. When using a parallel stream, the 
+data is automatically divided into multiple tasks and executed concurrently, without the need for the programmer to manually manage 
+the parallel processing.
+
+.................................................................................................................................................
+
+how to avoid inherting some methods in child component so only parent component can access
+
+Make the method private: By making the method private, it will only be accessible within the parent component and not from any child component.
+
+Use the final keyword: You can also use the final keyword to prevent the method from being overridden in a child component.
+
+..............................................................................................................................................
+when we crate child object which constructor is called 
+
+first called parent constructor followed by child constrcuotr
+

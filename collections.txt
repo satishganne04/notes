@@ -1,0 +1,86 @@
+List
+
+In Java, the List interface is part of the java.util package and provides a way to store a collection of elements.
+ It is an ordered collection and allows duplicate elements. The interface is implemented by several classes, including ArrayList and LinkedList.
+.............................................................................................................................................. 
+ ArrayList
+ 
+ ArrayList is implemented as an array, which means that it has a fixed size when it is created. However, the size of the array can be increased 
+ or decreased as elements are added or removed.
+
+ArrayList allows duplicate elements.
+
+ArrayList is ordered, which means that the elements are stored in a specific order, and that order is maintained as elements are added or removed.
+
+ArrayList provides constant-time performance for the basic operations of adding and removing elements at the end of the list. 
+However, adding or removing elements at the beginning or middle of the list can be slower, as the elements need to be shifted to make room
+ for the new element or fill the gap left by the removed element.
+
+ArrayList is not synchronized, which means that it is not thread-safe. If multiple threads need to access an ArrayList simultaneously, 
+it is recommended to use the Collections.synchronizedList(List<T> list) method to return a thread-safe view of the specified list.
+
+Memory usage is efficient because it only stores the elements in the list, unlike a linked list which also stores references to the 
+next and previous elements.
+......................................................................................................................................
+
+A linked list in Java is a data structure that consists of a sequence of elements, each of which contains a reference to the next element in the list.
+It is typically implemented as a class, with each element of the list represented as an object of that class.
+The class typically includes methods for adding and removing elements, such as:
+Inserting a new element at the beginning, end, or a specific position in the list.
+Deleting an element at a specific position or with a specific value.
+It also includes methods for traversing the list, such as:
+Iterating through the elements in the list.
+Finding the size of the list.
+Linked list is useful for situations where the number of elements in the list may change frequently and the need to insert or delete 
+elements at any point in the list.
+Linked List have the advantage of constant time complexity for insertion and deletion operations as they don't require shifting elements
+ like arrays do.
+They have a disadvantage of poor cache performance and O(n) time complexity for random access operations like find kth element.
+Java provides an implementation of the LinkedList class in the java.util package that can be used for creating and manipulating linked lists.
+It also provides a doubly linked list implementation of the same class.
+
+A linked list can implement the Deque (Double-Ended Queue) interface, which allows elements to be added or removed from both the front 
+and the back of the list.
+
+............................................................................................................................................
+
+Vector in Java is a class that implements a dynamic array, which means it can grow or shrink in size as needed. It is similar to an ArrayList, 
+but it is synchronized and has additional methods for thread-safe operations.
+.................................................................................................................................................
+
+A stack is a linear data structure that follows the Last In First Out (LIFO) principle, meaning that the last element added to the stack is the 
+first one to be removed. The main operations that can be performed on a stack are push (add an element to the stack), pop (remove the last element
+ from the stack), and peek (look at the last element without removing it from the stack).
+ 
+ ...............................................................................................................................................
+ A HashSet is a collection that is implemented as a hash table,
+ . It is an implementation of the Set interface that does not allow duplicate elements and does not maintain the insertion order of elements. 
+ 
+ A HashSet uses a hash table to store its elements, which allows for fast add, remove, and contains operations. On average, these operations have a 
+ time complexity of O(1), which makes HashSet a good choice for large data sets or when performance is a concern.
+ 
+ HashSet uses the hash code of the elements to determine where to store them in the hash table. If two elements have the same hash code, 
+ their position in the table is determined by their equals method.
+ 
+ HashSet is not thread-safe, 
+ 
+ .................................................................................................................................................
+ 
+ A LinkedHashSet is a collection that is implemented as a hash table with a doubly-linked list.
+ 
+ maintains the insertion order of elements.
+ 
+ LinkedHashSet a good choice when the order of elements is important.
+ 
+ LinkedHashSet is not thread-safe, 
+ 
+ The initial capacity of a LinkedHashSet is 16, and the load factor is 0.75.
+.....................................................................................................................................................
+treeset 
+ 
+It is an interface that extends the Set interface and provides additional methods for working with sorted sets of objects. 
+SortedSet interface guarantees that the elements in the set are sorted in ascending order, according to their natural ordering or according
+ to a specified comparator.
+ The most common implementation of SortedSet is the TreeSet class.
+ 
+ 

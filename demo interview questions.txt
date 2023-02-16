@@ -1,0 +1,29 @@
+how to define class in javascript 
+
+difference between es 6 and es 5
+
+hjjava srcipr and json
+
+support data types
+
+component in react
+
+parraleler stran abnd stream 
+
+hashmap and concurrenshashmap
+
+overdidee properiries in spring boot
+
+two factor authintication
+
+callable interface
+
+nan in java script 
+
+== and ==== in java script 
+
+ ostu in java script 
+ 
+ sacar design pattern 
+ 
+ 

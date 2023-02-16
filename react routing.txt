@@ -1,0 +1,32 @@
+Link is a 
+basic component for creating links between different routes in a React application. It's used to navigate to different pages without 
+a full page reload.
+
+NavLink, on the other hand, is a special version of the Link component that is designed to be used within navigation menus. It's often
+ styled differently from regular links and is used to indicate the current page that the user is on. Additionally, NavLink provides some 
+ extra props that can be used to apply active styles to the link when it matches the current route.
+ 
+ ...........................................................................................................................................
+ 
+ useNavigate is a hook in React Router that allows you to programmatically navigate to different routes in your React application.
+ 
+ With useNavigate, you can trigger navigation from within your React components without having to use a Link component
+ 
+ to go back ====navigate(-)
+ 
+ 
+ 
+ ............................................................................................................................................
+ 
+ In React, an outlet refers to a component property that allows components to render children components or content dynamically. An outlet 
+ component acts as a placeholder that can be filled with content from another component
+ 
+ ........................................................................................----------------------
+ In React, the "useParams" hook is used to access the dynamic values in the URL parameters. 
+ 
+ ............................................................................................................................
+ 
+ The "useSearchParams" hook is a part of the "query-string" library and it allows you to easily read and update the query parameters in the URL.
+ The hook returns an object that contains the current query parameters, as well as a set of functions to modify them.
+ 
+ ...........................................................................................................................................

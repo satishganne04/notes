@@ -1,0 +1,55 @@
+jenikins 
+
+it is a continous integration tool ,it is used to build , deploy it to the production 
+
+Jenkins is an open-source automation server that provides hundreds of plugins to support building, deploying, and automating any project
+
+................................................................................................................................................
+
+1)coninuous integration
+Continuous integration (CI) is a software development practice where developers regularly merge their code changes into a single codebase.
+ The integration process is automated, usually triggered by a source control management system like Git, and includes building the code, running 
+ tests, and generating reports. 
+ 
+ ....................................................................................................................
+ 
+ coninuous integration workflow
+The continuous integration (CI) workflow typically consists of the following steps:
+
+Code development: Developers write code and commit changes to a shared source control repository.
+Continuous integration server detects changes: The CI server, such as Jenkins, is configured to listen for changes in the source control repository.
+Build and test: Upon detecting changes, the CI server automatically builds the code and runs automated tests.
+Report results: The CI server generates reports on the build and test results, including any failures.
+Fix failures: If the build or tests fail, developers fix the issues and recommit the code changes.
+Repeat: The CI server repeats the build and test process until all changes are tested and pass.
+Deployment: Once all changes are tested and pass, the CI server can deploy the code to a production or other environment.
+The CI workflow helps to catch integration issues early in the development process, allowing for faster and smoother software releases.
+
+...................................................................................................................
+
+crate a new job 
+
+1.clock on new job
+2.give a name ,click on type of project(here freestyle project) click ok
+3.give descripion ,check github project ,provide project url  , go down where "source code managment" give git , provide repository url
+   down click on add -click on jenikins , give jenkins credentials , we can schedule , in down build , click on maven related thing 
+   and give -clean installand we can send email notification
+   click on apply and save 
+4.go to jenikins ,click on our project ,click on build now ,
+.....................................................................................................................
+
+pipeline
+
+pipeline is a workflow with the group of events or jobs that are chained and integrated with each other in sequence
+
+a) pipeline is a process of continous delivery automation using jenikins job
+b) each job contains some processing inlets and outlets
+c) build deploy test release \
+d)continous delivery pipeline
+
+
+types of pipelines 
+1.build plugin pipeline
+2.declarative pipeline
+3.scripted pipeline
+

@@ -1,0 +1,10 @@
+What is state hoisting
+2. What are falsy values in js
+3. Synchronous vs Asynchronous code
+4. What is a purpose of a Function as a child 
+5. Presentational component vs container component
+6. Why do we need keys for React lists
+7. How to recognize closures in js
+8. Difference between using fetch() and axios
+9. Purpose of fragments
+10. How to create a custom hook

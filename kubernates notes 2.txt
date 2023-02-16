@@ -1,0 +1,128 @@
+blog in medium 
+
+https://medium.com/@javatechie
+
+...........................................................................................................................
+1.kubrnates is container managment tool
+
+container means the image which created by docker
+
+managment --it is usde to manage deploying ,schudling,scaling ,load balancing
+
+...............................................................
+
+Pods: The smallest deployable units in Kubernetes, used to run one or more containers.each pod associated with single ip address ,
+
+
+Nodes: all pods are wrapped into node ,it can have single pod or multiple pods
+
+
+cluster: -muliple nodes wrapped into cluster ,it can have mupliple nodes or single node 
+
+         it consists of one master node  , multiple worker nodes
+		 master node monittors the worker nodes 
+		 if any pod fails it will replace new pod with new ip address 
+
+         if nodes are down , then it immidiately assign new node to pods 
+
+         master node has 4 parts 
+        1)api server -it acts as cluster gateway
+		2)scheduler --it will check cpu and ,memory of each node ,based on availability it will schedule pods to node 
+        3)controller manager --it has 4 conrollers 
+		      a)node controller --monitor the all nodes
+			  b)replicstion controller --monitor the health of pods , if any pod fails immedialtely takes action 
+			  c)end point controller --responsibke for managing all te services
+			  d) service accout&token contoroller -responsible for account/api access @namespacee
+		4)ETCD : kubernates use ETCD as key value pair database store ,it stores the configuration of the kubernates cluster in etcd 
+               it stores all the secret and configapp data inside ETCD database 
+			     
+				 
+worker node :it is a virtual or physicsl machine , it has multiple pods and each pod has single or multiple containers
+  it has 3 parts 
+                1).kubelet --it is an agent running on each node ,and it is used communicate with master node  using api server  , 
+				kublets works in terms of podspec , podspec is yaml or json object that describes about ur pods 
+	            2)kube proxy --it is networkk agent which runs on each node ,and it is responsible for mainting netwprk configuration @rules
+				
+				3)container runtime --it is also known as container engine ,it helps to runs container in  pods
+				
+			   
+	 
+..............................................................................................................................................	
+run and deploy spring boot crud in k8s
+
+1.first we need to push the mysql to kubernates for to run spring boot application 
+2.start the miniqube  -minikube start
+3.to sync minikube with docker --eval $(minikube docker-env)
+4.we need to create ynml file for mysql with 1).persistent volume claim and 2).deployment object and 3)service objjecgt
+  A Persistent Volume Claim (PVC) is a request for storage made by a user in a Kubernetes cluster
+4.run the file --kubectl apply -f yamlfile 
+5.change application.properties file fr database 
+6.dokerize the spring boot apllication 
+7.create yaml file with database , run apply command using kubectl
+8.to check where it is ruuning ..kubectl get svc an kubectl ip 
+
+
+
+
+
+
+............................................................................................................................................
+first dockerize the application 
+
+to read kubernates local docker repository , we need to run ---minikube docker-env
+
+go to springbootapplication location , to dockerie in coomand prompt --docker build -t dockerimagename .
+
+Creating Kubernetes deployment file which contain both deployment and service file 
+
+create service , from service url we can access appliction 
+
+kubectl apply -f deployment.yaml -----to deploy to 
+
+.......................................................................................................................................................	
+
+replication nodes/replica set :  it is relica or backup of pod ,when a pod fails , it is designed creating deployment 
+
+service : a service exposes our application outside the Kubernetes cluster. It acts as the load balancer that distributes 
+           requests made to our application to various instances of the application running in the cluster.
+
+
+
+one or multiple pod is associated with one service, It gives your pods a stable IP address and DNS name, and
+         can load balance incoming traffic. Services can be accessed by other services in the same namespace or by external
+		 clients using endpoints, ClusterIPs, LoadBalancer or ExternalName type of Services.
+		 
+		 the traffic will manage by service and redirects to available pods
+		 
+		 
+deployments:Deployment - a deployment is a blueprint that is used to create instances of our application in the cluster.
+                        deployments are kubernates objects that are used for managing pods
+             you can scale ur application by increasing the no of running pods , or update the running application using deployment objects
+
+            The Kubernetes deployment object lets you:
+
+Deploy a replica set or pod
+Update pods and replica sets
+Rollback to previous deployment versions
+Scale a deployment
+Pause or continue a deployment
+
+...................................................................................................
+secrets and configapp -- it is used to store senstive information ,it is present in outside of pod 
+
+ETCD : kubernates use ETCD as key value pair database store ,it stores the configuration of the kubernates cluster in etcd 
+      it stores all the secret and configapp data inside ETCD database 
+
+...............................................................................................................
+
+	  
+			 
+		 
+		 
+		 
+
+		 
+
+		 
+
+.......................................................................................

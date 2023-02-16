@@ -1,0 +1,134 @@
+in Java 8, the Stream API was introduced as a new way to work with collections of data. A Stream represents a sequence of elements and supports
+ various operations to perform functional-style computations on those elements.
+
+There are two types of operations that can be performed on a stream: intermediate operations and terminal operations.
+
+Intermediate operations, such as filter(), map(), and sorted(), transform a stream into another stream. They do not produce a final result but instead 
+return a new stream that can be used for further operations.
+
+Terminal operations, such as forEach(), toArray(), and reduce(), produce a final result or a side-effect. They can also be used to trigger the processing 
+of a stream.
+
+............................................................................................................................................................
+
+A method reference is a shorthand for a lambda expression that calls an existing method. It allows you to reuse existing methods and improve 
+readability of your code.
+
+ syntax: referenceofmethod::methodname 
+  
+There are four types of method references in Java:
+
+Reference to a static method: ClassName::staticMethodName
+Reference to an instance method of an arbitrary object of a particular type: objectRef::instanceMethodName
+Reference to an instance method of an object of a particular type: ClassName::instanceMethodName
+Reference to a constructor: ClassName::new
+
+
+we can call non static get methods by suing class if it doest not have any parameretrs
+
+
+
+.......................................................................................................................................
+
+Here is a list of some of the most commonly used methods in the Stream API:
+
+Intermediate Operations:
+
+filter(Predicate<T> predicate): Returns a stream with elements that satisfy the given predicate.
+
+map(Function<T, R> mapper): Returns a stream with the results of applying the given function to the elements of the stream.
+
+flatMap(Function<T, Stream<R>> mapper): Returns a stream that is the result of replacing each element of the stream with the contents of a mapped stream.
+it is used when there is stream of stream data to get in stream of data 
+
+distinct(): Returns a stream with distinct elements.
+
+sorted(): Returns a stream with the elements sorted according to their natural order.
+
+peek(Consumer<T> action): In Java 8, the peek() method is an intermediate operation in the Stream API that allows you to 
+perform a specific action on each element of a stream while preserving the original stream. This can be useful for 
+debugging, logging, or other types of intermediate processing.
+
+.........................................................................................................................
+
+intermediate operations are used to manipulate the elements of a stream and return a new stream, while terminal operations
+ are used to perform aggregate operations or return a non-stream result and consume the stream.
+
+..............................................................................................................................
+Terminal Operations:
+
+forEach(Consumer<T> action): Performs the given action for each element of the stream.
+
+toArray(): Returns an array containing the elements of the stream.
+
+reduce(T identity, BinaryOperator<T> accumulator): Returns an Optional describing the reduced value of the stream, or an empty Optional if there 
+are no elements
+collect(Collector<T, A, R> collector): Returns an instance of the type specified by the collector.
+count(): Returns the count of elements in the stream.
+
+min(Comparator<T> comparator): Returns an Optional describing the minimum element of the stream according to the provided comparator, or an empty
+ Optional if there are no elements.
+
+max(Comparator<T> comparator): Returns an Optional describing the maximum element of the stream according to the provided comparator, or an 
+empty Optional if there are no elements.
+
+anyMatch(Predicate<T> predicate): Returns boolean whether any elements of the stream match the provided predicate.it will return
+ true or false 
+
+
+allMatch(Predicate<T> predicate): Returns boolean  whether all elements of the stream match the provided predicate.
+
+noneMatch(Predicate<T> predicate): Returns boolean whether no elements of the stream match the provided predicate.
+
+findFirst(): Returns an Optional describing the first element of the stream, or an empty Optional if the stream is empty.
+
+findAny(): Returns an Optional describing some element of the stream, or an empty Optional if the stream is empty.
+
+reduce ---retruns optional , takes two input and one output ....
+
+
+Both the skip() and limit() methods are intermediate operations, meaning that they can be used in combination with other
+ intermediate and terminal operations to create more complex stream pipelines. For example, you can use the skip() method 
+to skip the first n elements of a stream, then use the limit() method to limit the remaining elements to the first 
+m elements, and then use other intermediate and terminal operations to perform further processing on the resulting stream.
+
+
+....................................................................................................
+
+optional 
+
+In Java 8, the Optional class was introduced as a way to handle null values in a safer and more elegant way. The Optional class is a container 
+object which may or may not contain a non-null value. If a value is present, isPresent() will return true and get() will return the value.
+
+..................................................................................................
+
+parrallel stream
+ in normsal stream the execution wil be one core , it procced in sequential order 
+ in parallel stream , the executuion will be work on different cores , the order not in sequential order
+ 
+ ...........................................................................................................................
+ 
+ MetaSpace in Java 8 with Examples
+ 
+ in jvm we has heap area , method area , method stack ,natice method stack ,pc registers 
+ 
+ Apart from the heap memory, JVM also contains another type of memory which is called as Permanent Generation or “PermGen”. 
+ 
+ 
+ this is a special space in java heap which is separated from the main memory where all the static content is stored in this section.
+ 
+ The biggest disadvantage of PermGen is that it contains a limited size which leads to an OutOfMemoryError. The default size of
+ PermGen memory is 64 MB on 32-bit JVM and 82 MB on the 64-bit version. 
+ 
+ Due to this, JVM had to change the size of this memory by frequently performing Garbage collection which is a costly operation
+ 
+ in the place of PermGen, a new feature called Meta Space has been introduced. MetaSpace grows automatically by default. Here, the garbage 
+ collection is automatically triggered when the class metadata usage reaches its maximum metaspace size. 
+ 
+ ..............................,..................................................................................................................
+ 
+ 
+
+ 
+
+

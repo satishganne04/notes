@@ -1,0 +1,101 @@
+solid principles
+
+Single Responsibility Principle (SRP): A class should have one, and only one, reason to change. This means that a class should have a single, 
+well-defined responsibility and should not be responsible for multiple things.
+
+Open-Closed Principle (OCP): A class should be open for extension but closed for modification. This means that a class should be designed in
+ such a way that new functionality can be added without modifying the existing code.
+
+Liskov Substitution Principle (LSP): Subtypes should be substitutable for their base types. This means that objects of a derived class should
+ be able to replace objects of the base class without affecting the correctness of the program.
+
+Interface Segregation Principle (ISP): A class should not be forced to implement interfaces it does not use. This means that a class should 
+only be required to implement the methods that it needs and should not be forced to implement unnecessary methods.
+
+Dependency Inversion Principle (DIP): Depend upon abstractions, not upon concretions. This means that a class should not depend on concrete 
+classes, but rather on abstractions. This makes the code more flexible and easier to change as the dependencies are inversed.
+
+.........................................................................................................................................
+
+factory design pattern
+
+The Factory Design Pattern is a creational design pattern that provides an interface for creating objects in a super class,
+ but allows subclasses to alter the type of objects that will be created. It's used to create objects without specifying the exact
+ class of object that will be created.
+
+ creation of different types of payment methods in an e-commerce application
+ 
+ You can have an interface called PaymentMethod, and different classes that implement this interface such as CreditCardPayment, PayPalPayment, 
+ and BankTransferPayment.
+ 
+ .......................................................................................................................................
+
+The Factory pattern can be used to create different types of bank accounts, like savings, checking, and credit accounts.
+
+The Singleton pattern can be used to ensure that only one instance of a class representing a bank account database is created in the system.
+
+The Observer pattern can be used to notify interested parties about changes in account balance or transactions.
+
+The Decorator pattern can be used to add additional functionality to bank accounts, like overdraft protection or interest calculation.
+
+The Command pattern can be used to encapsulate operations on bank accounts, like deposit and withdrawal, in separate classes.
+
+The State pattern can be used to implement the different states of a bank account, like active, inactive, and closed.
+
+The Template Method pattern can be used to define a common algorithm for processing bank transactions, while allowing subclasses to provide specific implementations.
+
+The Composite pattern can be used to model a hierarchical structure of bank accounts, like accounts within an account.
+
+All these patterns can be used to provide a flexible, maintainable, and extensible architecture for a banking application.
+
+It's good to have knowledge of different design patterns and their use cases to make a better decision when designing your application.
+
+........................................................................................................................................................
+command design pattern
+
+
+before any request we directly excutes in service logic
+
+but now we convert request to command and then excute by service logic 
+
+it has 3 parts In this example, the ConcreteCommandA and ConcreteCommandB classes implement the Command interface and encapsulate the 
+request to the Receiver class. The Invoker class is responsible for executing the command by calling the execute() method.
+
+command --it has coomsnds it is a interfaceand 
+
+receiver-- -class  has all the actions 
+
+invoker -responsible for executing the command by calling the execute() method.
+
+
+Credit card operations: The command pattern can be used to encapsulate different types of credit card operations such as approving a transaction, 
+declining a transaction, and refunding a transaction. Each type of operation can be represented by a different concrete command class, with the 
+receiver being the credit card service.
+
+
+.............................................................................................................................................
+
+The builder design pattern is a creational design pattern that separates the construction of a complex object from its representation.
+ It allows for the construction of an object to be done step-by-step, through multiple method calls, rather than all at once through a single 
+ constructor call.
+
+  Builder is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different 
+  types and representations of an object using the same construction code.
+  
+  ......................................................................................................................
+
+The singleton design pattern is a creational design pattern that ensures a class has only one instance while providing a global point of access 
+to this instance. The singleton pattern can be implemented using the enum type in Java.
+
+
+Here's how you can implement a singleton design pattern using an enum in Java:
+
+
+public enum SingletonEnum {
+    INSTANCE;
+    
+    // Add your instance variables and methods here
+}
+
+https://dzone.com/articles/java-singletons-using-enum
+.....................................................................................................................................
